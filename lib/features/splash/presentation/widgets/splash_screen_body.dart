@@ -31,6 +31,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [SvgPicture.asset(AppImages.imagesPlant)],
         ),
         SvgPicture.asset(AppImages.imagesLogo),

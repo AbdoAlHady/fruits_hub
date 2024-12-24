@@ -8,11 +8,11 @@ class AppImages {
 
   static const String imagesPageViewItem1BackgroundImage = "assets/images/page_view_item1_background_image.svg";
 
-  static const String imagesPageViewItem1Image = "assets/images/page_view_item1_image.svg";
+  static const String imagesPageViewItem1Image = "assets/images/page_view_item1_image.png";
 
   static const String imagesPageViewItem2BackgroundImage = "assets/images/page_view_item2_background_image.svg";
 
-  static const String imagesPageViewItem2Image = "assets/images/page_view_item2_image.svg";
+  static const String imagesPageViewItem2Image = "assets/images/page_view_item2_image.png";
 
   static const String imagesPlant = "assets/images/plant.svg";
 

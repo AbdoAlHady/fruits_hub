@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruits_hub/core/helper/spacing.dart';
 import 'package:fruits_hub/core/theme/app_text_styles.dart';
+import 'package:fruits_hub/core/widgets/animate_do.dart';
 import 'package:fruits_hub/generated/l10n.dart';
 
 class PageViewItem extends StatelessWidget {
@@ -26,47 +27,53 @@ class PageViewItem extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           height: MediaQuery.of(context).size.height * 0.5,
-          child: Stack(
-            children: [
-              // Using Positioned.fill to fill the parent widget
-              Positioned.fill(
-                child: SvgPicture.asset(
-                  backgorundImage,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              Align(
-                alignment: AlignmentDirectional.bottomCenter,
-                child: Image.asset(
-                  width: 270.w,
-                  height: 266.h,
-                  fit: BoxFit.fill,
-                  image,
-                ),
-              ),
-
-              Visibility(
-                visible: isVisible,
-                child: Align(
-                  alignment: AlignmentDirectional.topStart,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(S.of(context).skip,
-                        style: AppTextStyles.font13GreyW400),
+          child: CustomFadeInDown(
+            duration: 300,
+            child: Stack(
+              children: [
+                // Using Positioned.fill to fill the parent widget
+                Positioned.fill(
+                  child: SvgPicture.asset(
+                    backgorundImage,
+                    fit: BoxFit.fill,
                   ),
                 ),
-              ),
-            ],
+                Align(
+                  alignment: AlignmentDirectional.bottomCenter,
+                  child: Image.asset(
+                    width: 270.w,
+                    height: 266.h,
+                    fit: BoxFit.fill,
+                    image,
+                  ),
+                ),
+
+                Visibility(
+                  visible: isVisible,
+                  child: Align(
+                    alignment: AlignmentDirectional.topStart,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(S.of(context).skip,
+                          style: AppTextStyles.font13GreyW400),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         verticalSpace(60),
-        title,
+        CustomFadeInRight(duration: 400, child: title),
         verticalSpace(24),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Text(subTitle,
-              style: AppTextStyles.font13LightDarkW600,
-              textAlign: TextAlign.center),
+        CustomFadeInUp(
+          duration: 500,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Text(subTitle,
+                style: AppTextStyles.font13LightDarkW600,
+                textAlign: TextAlign.center),
+          ),
         ),
       ],
     );

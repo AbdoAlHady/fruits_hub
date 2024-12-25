@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_hub/core/helper/spacing.dart';
 import 'package:fruits_hub/core/theme/app_colors.dart';
+import 'package:fruits_hub/core/widgets/animate_do.dart';
 import 'package:fruits_hub/core/widgets/app_custom_button.dart';
 import 'package:fruits_hub/features/onboarding/presentation/widgets/on_boarding_page_view.dart';
 
@@ -41,15 +42,18 @@ class _OnBoardingScreenBodyState extends State<OnBoardingScreenBody> {
             pageController: pageController,
           ),
         ),
-        DotsIndicator(
-          dotsCount: 2,
-          decorator: DotsDecorator(
-            activeColor: AppColors.primaryColor,
-            color: currentPage == 1
-                ? AppColors.primaryColor
-                : AppColors.lightGreen,
-            size: Size(11.w, 11.h),
-            activeSize: Size(11.w, 11.h),
+        CustomFadeInUp(
+          duration: 300,
+          child: DotsIndicator(
+            dotsCount: 2,
+            decorator: DotsDecorator(
+              activeColor: AppColors.primaryColor,
+              color: currentPage == 1
+                  ? AppColors.primaryColor
+                  : AppColors.lightGreen,
+              size: Size(11.w, 11.h),
+              activeSize: Size(11.w, 11.h),
+            ),
           ),
         ),
         verticalSpace(29),

@@ -119,6 +119,16 @@ class S {
       args: [],
     );
   }
+
+  /// `ابحث وتسوق`
+  String get searchAndShop {
+    return Intl.message(
+      'ابحث وتسوق',
+      name: 'searchAndShop',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

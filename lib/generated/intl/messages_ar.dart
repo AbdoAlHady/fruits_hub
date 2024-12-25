@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingSubtitle2": MessageLookupByLibrary.simpleMessage(
             "نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية"),
         "onBoardingTitle1": MessageLookupByLibrary.simpleMessage("ابحث وتسوق"),
+        "searchAndShop": MessageLookupByLibrary.simpleMessage("ابحث وتسوق"),
         "skip": MessageLookupByLibrary.simpleMessage("تخط"),
         "welcomeIn": MessageLookupByLibrary.simpleMessage("مرحبا بك في")
       };

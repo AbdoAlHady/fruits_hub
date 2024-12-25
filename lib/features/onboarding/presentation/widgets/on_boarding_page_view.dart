@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_hub/core/theme/app_colors.dart';
+import 'package:fruits_hub/core/theme/app_text_styles.dart';
 import 'package:fruits_hub/core/utils/app_images.dart';
 import 'package:fruits_hub/features/onboarding/presentation/widgets/page_view_item.dart';
 
@@ -14,36 +16,37 @@ class OnBoardingPageView extends StatelessWidget {
       children: [
         PageViewItem(
           image: AppImages.imagesPageViewItem1Image,
-          isVisible:
-              (pageController.hasClients ? pageController.page!.round() : 0) ==
-                  0,
+          isVisible: true,
           backgorundImage: AppImages.imagesPageViewItem1BackgroundImage,
           subTitle: S.of(context).onBoardingSubtitle1,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("مرحبًا بك في"),
-              Text('Fruit'),
-              Text("HUB"),
+              Text(
+                S.of(context).welcomeIn,
+                style: AppTextStyles.font23W700,
+              ),
+              Text(
+                S.of(context).fruits,
+                style: AppTextStyles.font23W700
+                    .copyWith(color: AppColors.primaryColor),
+              ),
+              Text(
+                S.of(context).hub,
+                style: AppTextStyles.font23W700
+                    .copyWith(color: Colors.orangeAccent),
+              ),
             ],
           ),
         ),
         PageViewItem(
           image: AppImages.imagesPageViewItem2Image,
-          isVisible:
-              (pageController.hasClients ? pageController.page!.round() : 1) ==
-                      1
-                  ? false
-                  : true,
+          isVisible: false,
           backgorundImage: AppImages.imagesPageViewItem2BackgroundImage,
           subTitle: S.of(context).onBoardingSubtitle2,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("مرحبًا بك في"),
-              Text('Fruit'),
-              Text("HUB"),
-            ],
+          title: Text(
+            S.of(context).searchAndShop,
+            style: AppTextStyles.font23W700,
           ),
         ),
       ],

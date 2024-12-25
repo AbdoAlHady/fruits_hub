@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruits_hub/core/helper/spacing.dart';
+import 'package:fruits_hub/core/theme/app_text_styles.dart';
+import 'package:fruits_hub/generated/l10n.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem(
@@ -49,7 +51,8 @@ class PageViewItem extends StatelessWidget {
                   alignment: AlignmentDirectional.topStart,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: Text('تخط'),
+                    child: Text(S.of(context).skip,
+                        style: AppTextStyles.font13GreyW400),
                   ),
                 ),
               ),
@@ -61,7 +64,9 @@ class PageViewItem extends StatelessWidget {
         verticalSpace(24),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Text(subTitle, textAlign: TextAlign.center),
+          child: Text(subTitle,
+              style: AppTextStyles.font13LightDarkW600,
+              textAlign: TextAlign.center),
         ),
       ],
     );

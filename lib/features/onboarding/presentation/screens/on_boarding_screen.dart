@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruits_hub/features/onboarding/presentation/widgets/on_boarding_screen_body.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -6,9 +7,7 @@ class OnBoardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('OnBoarding Screen'),
-      ),
+      body: SafeArea(child: OnBoardingScreenBody()),
     );
   }
 }

@@ -17,4 +17,9 @@ extension ContextExtension on BuildContext {
   }
 
   void pop() => Navigator.of(this).pop();
+
+  // sceen width
+  double get width => MediaQuery.of(this).size.width;
+  // sceen height
+  double get height => MediaQuery.of(this).size.height;
 }

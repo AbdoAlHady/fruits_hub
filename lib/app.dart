@@ -25,6 +25,9 @@ class FruitsHubApp extends StatelessWidget {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
+          theme: ThemeData(
+            fontFamily: 'Cairo',
+          ),
           supportedLocales: S.delegate.supportedLocales,
           navigatorKey: AppRouter.navigatorKey,
           debugShowCheckedModeBanner: false,

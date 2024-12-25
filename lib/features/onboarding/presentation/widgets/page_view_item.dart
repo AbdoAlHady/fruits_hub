@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fruits_hub/core/helper/extensions.dart';
 import 'package:fruits_hub/core/helper/spacing.dart';
+import 'package:fruits_hub/core/routing/routes.dart';
+import 'package:fruits_hub/core/services/cache_helper.dart';
 import 'package:fruits_hub/core/theme/app_text_styles.dart';
+import 'package:fruits_hub/core/utils/prefs_keys.dart';
 import 'package:fruits_hub/core/widgets/animate_do.dart';
 import 'package:fruits_hub/generated/l10n.dart';
 
@@ -52,10 +56,19 @@ class PageViewItem extends StatelessWidget {
                   visible: isVisible,
                   child: Align(
                     alignment: AlignmentDirectional.topStart,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(S.of(context).skip,
-                          style: AppTextStyles.font13GreyW400),
+                    child: GestureDetector(
+                      onTap: () async {
+                        await CacheHelper().saveData(
+                            key: PrefsKeys.isOnBoardingSeen, value: true);
+                        if (context.mounted) {
+                          context.pushReplacementNamed(Routes.loginScreen);
+                        }
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(S.of(context).skip,
+                            style: AppTextStyles.font13GreyW400),
+                      ),
                     ),
                   ),
                 ),

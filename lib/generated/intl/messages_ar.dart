@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingTitle1": MessageLookupByLibrary.simpleMessage("ابحث وتسوق"),
         "searchAndShop": MessageLookupByLibrary.simpleMessage("ابحث وتسوق"),
         "skip": MessageLookupByLibrary.simpleMessage("تخط"),
+        "startNow": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
         "welcomeIn": MessageLookupByLibrary.simpleMessage("مرحبا بك في")
       };
 }

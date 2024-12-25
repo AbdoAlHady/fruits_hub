@@ -1,11 +1,17 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruits_hub/core/helper/extensions.dart';
 import 'package:fruits_hub/core/helper/spacing.dart';
+import 'package:fruits_hub/core/routing/routes.dart';
 import 'package:fruits_hub/core/theme/app_colors.dart';
 import 'package:fruits_hub/core/widgets/animate_do.dart';
 import 'package:fruits_hub/core/widgets/app_custom_button.dart';
 import 'package:fruits_hub/features/onboarding/presentation/widgets/on_boarding_page_view.dart';
+import 'package:fruits_hub/generated/l10n.dart';
+
+import '../../../../core/services/cache_helper.dart';
+import '../../../../core/utils/prefs_keys.dart';
 
 class OnBoardingScreenBody extends StatefulWidget {
   const OnBoardingScreenBody({super.key});
@@ -64,7 +70,15 @@ class _OnBoardingScreenBodyState extends State<OnBoardingScreenBody> {
           maintainState: true,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: AppCustomButton(onPressed: () {}, text: 'ابدأ الان'),
+            child: AppCustomButton(
+                onPressed: () async {
+                  await CacheHelper()
+                      .saveData(key: PrefsKeys.isOnBoardingSeen, value: true);
+                  if (context.mounted) {
+                    context.pushReplacementNamed(Routes.loginScreen);
+                  }
+                },
+                text: S.of(context).startNow),
           ),
         ),
         verticalSpace(43)

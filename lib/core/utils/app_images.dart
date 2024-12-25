@@ -1,20 +1,21 @@
 // ignore_for_file: prefer_single_quotes
 class AppImages {
   AppImages._();
-
-  /// Assets for imagesAppIcon
-  /// assets/images/app_icon.png
+  
   static const String imagesAppIcon = "assets/images/app_icon.png";
 
-  /// Assets for imagesLogo
-  /// assets/images/logo.svg
   static const String imagesLogo = "assets/images/logo.svg";
 
-  /// Assets for imagesPlant
-  /// assets/images/plant.png
+  static const String imagesPageViewItem1BackgroundImage = "assets/images/page_view_item1_background_image.svg";
+
+  static const String imagesPageViewItem1Image = "assets/images/page_view_item1_image.png";
+
+  static const String imagesPageViewItem2BackgroundImage = "assets/images/page_view_item2_background_image.svg";
+
+  static const String imagesPageViewItem2Image = "assets/images/page_view_item2_image.png";
+
   static const String imagesPlant = "assets/images/plant.svg";
 
-  /// Assets for imagesSplashBottom
-  /// assets/images/splash_bottom.svg
   static const String imagesSplashBottom = "assets/images/splash_bottom.svg";
 }
+

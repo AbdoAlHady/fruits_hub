@@ -49,6 +49,96 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `مرحبا بك في`
+  String get welcomeIn {
+    return Intl.message(
+      'مرحبا بك في',
+      name: 'welcomeIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fruit`
+  String get fruits {
+    return Intl.message(
+      'Fruit',
+      name: 'fruits',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `HUB`
+  String get hub {
+    return Intl.message(
+      'HUB',
+      name: 'hub',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تخط`
+  String get skip {
+    return Intl.message(
+      'تخط',
+      name: 'skip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ابحث وتسوق`
+  String get onBoardingTitle1 {
+    return Intl.message(
+      'ابحث وتسوق',
+      name: 'onBoardingTitle1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.`
+  String get onBoardingSubtitle1 {
+    return Intl.message(
+      'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
+      name: 'onBoardingSubtitle1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية`
+  String get onBoardingSubtitle2 {
+    return Intl.message(
+      'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
+      name: 'onBoardingSubtitle2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ابحث وتسوق`
+  String get searchAndShop {
+    return Intl.message(
+      'ابحث وتسوق',
+      name: 'searchAndShop',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ابدأ الآن`
+  String get startNow {
+    return Intl.message(
+      'ابدأ الآن',
+      name: 'startNow',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -57,6 +147,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ar'),
     ];
   }
 

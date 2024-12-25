@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruits_hub/core/helper/extensions.dart';
 import 'package:fruits_hub/core/routing/routes.dart';
+import 'package:fruits_hub/core/services/cache_helper.dart';
 import 'package:fruits_hub/core/utils/app_images.dart';
+import 'package:fruits_hub/core/utils/prefs_keys.dart';
 
 class SplashScreenBody extends StatefulWidget {
   const SplashScreenBody({super.key});
@@ -18,9 +20,12 @@ class _SplashScreenBodyState extends State<SplashScreenBody> {
     super.initState();
   }
 
-  void excuteNavigation() {
+  void excuteNavigation() async {
+    bool isOnBoarding =
+        await CacheHelper().getData(key: PrefsKeys.isOnBoardingSeen) ?? false;
     Future.delayed(const Duration(seconds: 2), () {
-      context.pushReplacementNamed(Routes.onBoardingScreen);
+      context.pushReplacementNamed(
+          isOnBoarding ? Routes.loginScreen : Routes.onBoardingScreen);
     });
   }
 
@@ -31,6 +36,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [SvgPicture.asset(AppImages.imagesPlant)],
         ),
         SvgPicture.asset(AppImages.imagesLogo),

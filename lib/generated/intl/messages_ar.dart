@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "fruits": MessageLookupByLibrary.simpleMessage("Fruit"),
         "hub": MessageLookupByLibrary.simpleMessage("HUB"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "newAccount": MessageLookupByLibrary.simpleMessage("حساب جديد"),
         "onBoardingSubtitle1": MessageLookupByLibrary.simpleMessage(
             "اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية."),
         "onBoardingSubtitle2": MessageLookupByLibrary.simpleMessage(

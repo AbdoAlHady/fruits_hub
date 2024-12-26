@@ -18,5 +18,6 @@
   "or": "أو",
   "signInWithFacebook":  "تسجيل بواسطة فيسبوك",
   "signInWithGoogle": "تسجيل بواسطة جوجل",
-  "signInWithApple": "تسجيل بواسطة أبل"
+  "signInWithApple": "تسجيل بواسطة أبل",
+  "newAccount":"حساب جديد"
 }

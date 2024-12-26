@@ -139,6 +139,106 @@ class S {
       args: [],
     );
   }
+
+  /// `تسجيل الدخول`
+  String get login {
+    return Intl.message(
+      'تسجيل الدخول',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `البريد الإلكتروني`
+  String get email {
+    return Intl.message(
+      'البريد الإلكتروني',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `كلمة المرور`
+  String get password {
+    return Intl.message(
+      'كلمة المرور',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `نسيت كلمة المرور؟`
+  String get forgotPassword {
+    return Intl.message(
+      'نسيت كلمة المرور؟',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ليس لديك حساب؟`
+  String get dontHaveAccount {
+    return Intl.message(
+      'ليس لديك حساب؟',
+      name: 'dontHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `قم بإنشاء حساب`
+  String get createOne {
+    return Intl.message(
+      'قم بإنشاء حساب',
+      name: 'createOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `أو`
+  String get or {
+    return Intl.message(
+      'أو',
+      name: 'or',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تسجيل بواسطة فيسبوك`
+  String get signInWithFacebook {
+    return Intl.message(
+      'تسجيل بواسطة فيسبوك',
+      name: 'signInWithFacebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تسجيل بواسطة جوجل`
+  String get signInWithGoogle {
+    return Intl.message(
+      'تسجيل بواسطة جوجل',
+      name: 'signInWithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `تسجيل بواسطة أبل`
+  String get signInWithApple {
+    return Intl.message(
+      'تسجيل بواسطة أبل',
+      name: 'signInWithApple',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

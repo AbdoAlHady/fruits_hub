@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_hub/core/helper/extensions.dart';
 import 'package:fruits_hub/core/routing/app_router.dart';
 import 'package:fruits_hub/core/routing/routes.dart';
+import 'package:fruits_hub/core/theme/app_colors.dart';
 import 'package:fruits_hub/generated/l10n.dart';
 
 class FruitsHubApp extends StatelessWidget {
@@ -26,8 +27,10 @@ class FruitsHubApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           theme: ThemeData(
-            fontFamily: 'Cairo',
-          ),
+              fontFamily: 'Cairo',
+              scaffoldBackgroundColor: Colors.white,
+              colorScheme:
+                  ColorScheme.fromSeed(seedColor: AppColors.primaryColor)),
           supportedLocales: S.delegate.supportedLocales,
           navigatorKey: AppRouter.navigatorKey,
           debugShowCheckedModeBanner: false,

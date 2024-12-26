@@ -22,7 +22,7 @@ class HaveOrDontHaveAccount extends StatelessWidget {
       TextSpan(
         text: text2,
         style: AppTextStyles.font16W600.copyWith(color: AppColors.primaryColor),
-        recognizer: TapGestureRecognizer()..onTap = () => onTap,
+        recognizer: TapGestureRecognizer()..onTap = onTap,
       ),
     ]));
   }

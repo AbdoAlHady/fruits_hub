@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruits_hub/core/helper/extensions.dart';
 import 'package:fruits_hub/core/helper/spacing.dart';
+import 'package:fruits_hub/core/routing/routes.dart';
 import 'package:fruits_hub/core/theme/app_colors.dart';
 import 'package:fruits_hub/core/theme/app_text_styles.dart';
 import 'package:fruits_hub/core/utils/app_images.dart';
@@ -54,7 +56,9 @@ class LoginScreenBody extends StatelessWidget {
           // Have or Dont Have Account
           HaveOrDontHaveAccount(
               text1: S.of(context).dontHaveAccount,
-              onTap: () {},
+              onTap: () {
+                context.pushNamed(Routes.signupScreen);
+              },
               text2: S.of(context).createOne),
           verticalSpace(33),
           // Or Divider

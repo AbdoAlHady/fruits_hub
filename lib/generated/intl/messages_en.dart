@@ -22,6 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "alreadyHaveAccount":
+            MessageLookupByLibrary.simpleMessage("تمتلك حساب بالفعل؟"),
+        "createNewAccount":
+            MessageLookupByLibrary.simpleMessage("إنشاء حساب جديد"),
         "createOne": MessageLookupByLibrary.simpleMessage("قم بإنشاء حساب"),
         "dontHaveAccount":
             MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
@@ -29,8 +33,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
         "fruits": MessageLookupByLibrary.simpleMessage("Fruit"),
+        "fullName": MessageLookupByLibrary.simpleMessage("الاسم الكامل"),
         "hub": MessageLookupByLibrary.simpleMessage("HUB"),
         "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "newAccount": MessageLookupByLibrary.simpleMessage("حساب جديد"),
         "onBoardingSubtitle1": MessageLookupByLibrary.simpleMessage(
             "اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية."),
         "onBoardingSubtitle2": MessageLookupByLibrary.simpleMessage(
@@ -47,6 +53,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تسجيل بواسطة جوجل"),
         "skip": MessageLookupByLibrary.simpleMessage("تخط"),
         "startNow": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
+        "termsAndConditions":
+            MessageLookupByLibrary.simpleMessage(" الشروط والأحكام الخاصة بنا"),
+        "tremsTitle": MessageLookupByLibrary.simpleMessage(
+            "من خلال إنشاء حساب ، فإنك توافق على"),
         "welcomeIn": MessageLookupByLibrary.simpleMessage("مرحبا بك في")
       };
 }

@@ -18,5 +18,11 @@
   "or": "أو",
   "signInWithFacebook":  "تسجيل بواسطة فيسبوك",
   "signInWithGoogle": "تسجيل بواسطة جوجل",
-  "signInWithApple": "تسجيل بواسطة أبل"
+  "signInWithApple": "تسجيل بواسطة أبل",
+  "newAccount":"حساب جديد",
+  "fullName": "الاسم الكامل",
+  "createNewAccount": "إنشاء حساب جديد",
+  "alreadyHaveAccount": "تمتلك حساب بالفعل؟",
+  "tremsTitle": "من خلال إنشاء حساب ، فإنك توافق على",
+  "termsAndConditions": " الشروط والأحكام الخاصة بنا"
 }

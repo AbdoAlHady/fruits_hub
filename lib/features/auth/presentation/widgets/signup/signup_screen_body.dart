@@ -5,6 +5,7 @@ import 'package:fruits_hub/core/helper/spacing.dart';
 import 'package:fruits_hub/core/utils/app_regex.dart';
 import 'package:fruits_hub/core/widgets/app_custom_button.dart';
 import 'package:fruits_hub/core/widgets/app_text_form_field.dart';
+import 'package:fruits_hub/core/widgets/password_field.dart';
 import 'package:fruits_hub/features/auth/presentation/cubits/signup_cubit.dart';
 import 'package:fruits_hub/features/auth/presentation/widgets/have_or_dont_have_account.dart';
 import 'package:fruits_hub/features/auth/presentation/widgets/signup/terms_and_conditions.dart';
@@ -60,33 +61,12 @@ class _SignupScreenBodyState extends State<SignupScreenBody> {
           ),
           verticalSpace(16),
           // Password
-          AppTextFormField(
-            hintText: S.of(context).password,
+          PasswordField(
             onSaved: (value) {
               password = value!;
             },
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return S.of(context).validPassword;
-              }
-              if (!AppRegex.hasUpperCase(value)) {
-                return S.of(context).passwordMustContainoneUppercaseLetter;
-              }
-
-              if (!AppRegex.hasLowerCase(value)) {
-                return S.of(context).passwordMustContainoneLowercaseLetter;
-              }
-              if (!AppRegex.hasSpecialCharacter(value)) {
-                return S.of(context).passwordMustContainoneSpecialCharacter;
-              }
-              if (!AppRegex.hasMinLength(value)) {
-                return S.of(context).passwordMustContainEihtNumbers;
-              }
-            },
-            keyboardType: TextInputType.visiblePassword,
-            isObscureText: true,
-            suffixIcon: Icon(Icons.remove_red_eye),
           ),
+
           verticalSpace(16),
           // Trems And Conditions
           TermsAndConditions(),

@@ -49,6 +49,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "passwordMustContainoneLowercaseLetter":
             MessageLookupByLibrary.simpleMessage(
                 "يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل"),
+        "passwordMustContainoneSpecialCharacter":
+            MessageLookupByLibrary.simpleMessage(
+                "يجب أن تحتوي كلمة المرور على حرف خاص واحد على الأقل"),
         "passwordMustContainoneUppercaseLetter":
             MessageLookupByLibrary.simpleMessage(
                 "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل"),

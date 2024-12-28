@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruits_hub/core/enums/enums.dart';
 import 'package:fruits_hub/features/auth/presentation/cubits/signup_cubit.dart';
 import 'package:fruits_hub/features/auth/presentation/cubits/signup_state.dart';
 import 'package:fruits_hub/features/auth/presentation/widgets/signup/signup_screen_body.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+
+import '../../../../../core/utils/app_toast.dart';
 
 class SignupBodyBlocConsumer extends StatelessWidget {
   const SignupBodyBlocConsumer({
@@ -14,14 +18,20 @@ class SignupBodyBlocConsumer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SignupCubit, SignupState>(
       listener: (context, state) {
-        // TODO: implement listener
+        if (state.stateType == StateType.failure) {
+          AppToast.showToastError(
+              context: context, message: state.errorMessage);
+        }
       },
       builder: (context, state) {
-        return SingleChildScrollView(
-            child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
-          child: SignupScreenBody(),
-        ));
+        return ModalProgressHUD(
+          inAsyncCall: state.stateType == StateType.loading,
+          child: SingleChildScrollView(
+              child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
+            child: SignupScreenBody(),
+          )),
+        );
       },
     );
   }

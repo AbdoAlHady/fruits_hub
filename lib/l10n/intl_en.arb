@@ -19,7 +19,7 @@
   "signInWithFacebook": "تسجيل بواسطة فيسبوك",
   "signInWithGoogle": "تسجيل بواسطة جوجل",
   "signInWithApple": "تسجيل بواسطة أبل",
-  "newAccount":"حساب جديد",
+  "newAccount": "حساب جديد",
   "fullName": "الاسم الكامل",
   "createNewAccount": "إنشاء حساب جديد",
   "alreadyHaveAccount": "تمتلك حساب بالفعل؟",
@@ -27,7 +27,9 @@
   "termsAndConditions": " الشروط والأحكام الخاصة بنا",
   "validEmail": "الرجاء إدخال بريد إلكتروني صالح",
   "validPassword": "الرجاء إدخال كلمة مرور صالحة",
-"passwordMustContainoneUppercaseLetter": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
+  "passwordMustContainoneUppercaseLetter": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
   "passwordMustContainoneLowercaseLetter": "يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل",
   "passwordMustContainEihtNumbers": "يجب أن تحتوي كلمة المرور على ثمانية أرقام على الأقل",
-  "validFullName": "الرجاء إدخال اسم صالح"}
+  "passwordMustContainoneSpecialCharacter": "يجب أن تحتوي كلمة المرور على حرف خاص واحد على الأقل",
+  "validFullName": "الرجاء إدخال اسم صالح"
+}

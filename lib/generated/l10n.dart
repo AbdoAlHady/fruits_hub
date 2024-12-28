@@ -350,6 +350,16 @@ class S {
     );
   }
 
+  /// `يجب أن تحتوي كلمة المرور على حرف خاص واحد على الأقل`
+  String get passwordMustContainoneSpecialCharacter {
+    return Intl.message(
+      'يجب أن تحتوي كلمة المرور على حرف خاص واحد على الأقل',
+      name: 'passwordMustContainoneSpecialCharacter',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `الرجاء إدخال اسم صالح`
   String get validFullName {
     return Intl.message(

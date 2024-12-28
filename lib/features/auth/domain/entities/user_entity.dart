@@ -11,6 +11,9 @@ class UserEntity extends Equatable {
     required this.name,
   });
 
+  // empty user entity
+  factory UserEntity.empty() => UserEntity(id: '', email: '', name: '');
+
   @override
   List<Object?> get props => [id, email, name];
 }

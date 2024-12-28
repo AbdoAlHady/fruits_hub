@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_hub/core/helper/extensions.dart';
 import 'package:fruits_hub/core/helper/spacing.dart';
+import 'package:fruits_hub/core/utils/app_regex.dart';
 import 'package:fruits_hub/core/widgets/app_custom_button.dart';
 import 'package:fruits_hub/core/widgets/app_text_form_field.dart';
 import 'package:fruits_hub/features/auth/presentation/widgets/have_or_dont_have_account.dart';
@@ -17,19 +18,40 @@ class SignupScreenBody extends StatelessWidget {
         // Full Name
         AppTextFormField(
           hintText: S.of(context).fullName,
-          validator: (value) {},
+          validator: (value) {
+            if (value!.isEmpty) {
+              return S.of(context).validFullName;
+            }
+          },
         ),
         verticalSpace(16),
         // Email
         AppTextFormField(
           hintText: S.of(context).email,
-          validator: (value) {},
+          validator: (value) {
+            if (AppRegex.isEmailValid(value!)) {
+              return S.of(context).validEmail;
+            }
+          },
         ),
         verticalSpace(16),
         // Password
         AppTextFormField(
           hintText: S.of(context).password,
-          validator: (value) {},
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return S.of(context).validPassword;
+            }
+            if (AppRegex.hasUpperCase(value)) {
+              return S.of(context).passwordMustContainoneUppercaseLetter;
+            }
+            if (AppRegex.hasLowerCase(value)) {
+              return S.of(context).passwordMustContainoneLowercaseLetter;
+            }
+            if (AppRegex.hasMinLength(value)) {
+              return S.of(context).passwordMustContainEihtNumbers;
+            }
+          },
           keyboardType: TextInputType.visiblePassword,
           isObscureText: true,
           suffixIcon: Icon(Icons.remove_red_eye),

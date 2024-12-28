@@ -299,6 +299,66 @@ class S {
       args: [],
     );
   }
+
+  /// `الرجاء إدخال بريد إلكتروني صالح`
+  String get validEmail {
+    return Intl.message(
+      'الرجاء إدخال بريد إلكتروني صالح',
+      name: 'validEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الرجاء إدخال كلمة مرور صالحة`
+  String get validPassword {
+    return Intl.message(
+      'الرجاء إدخال كلمة مرور صالحة',
+      name: 'validPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل`
+  String get passwordMustContainoneUppercaseLetter {
+    return Intl.message(
+      'يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل',
+      name: 'passwordMustContainoneUppercaseLetter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل`
+  String get passwordMustContainoneLowercaseLetter {
+    return Intl.message(
+      'يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل',
+      name: 'passwordMustContainoneLowercaseLetter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `يجب أن تحتوي كلمة المرور على ثمانية أرقام على الأقل`
+  String get passwordMustContainEihtNumbers {
+    return Intl.message(
+      'يجب أن تحتوي كلمة المرور على ثمانية أرقام على الأقل',
+      name: 'passwordMustContainEihtNumbers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `الرجاء إدخال اسم صالح`
+  String get validFullName {
+    return Intl.message(
+      'الرجاء إدخال اسم صالح',
+      name: 'validFullName',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

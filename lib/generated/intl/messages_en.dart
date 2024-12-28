@@ -44,6 +44,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingTitle1": MessageLookupByLibrary.simpleMessage("ابحث وتسوق"),
         "or": MessageLookupByLibrary.simpleMessage("أو"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "passwordMustContainEihtNumbers": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تحتوي كلمة المرور على ثمانية أرقام على الأقل"),
+        "passwordMustContainoneLowercaseLetter":
+            MessageLookupByLibrary.simpleMessage(
+                "يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل"),
+        "passwordMustContainoneUppercaseLetter":
+            MessageLookupByLibrary.simpleMessage(
+                "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل"),
         "searchAndShop": MessageLookupByLibrary.simpleMessage("ابحث وتسوق"),
         "signInWithApple":
             MessageLookupByLibrary.simpleMessage("تسجيل بواسطة أبل"),
@@ -57,6 +65,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(" الشروط والأحكام الخاصة بنا"),
         "tremsTitle": MessageLookupByLibrary.simpleMessage(
             "من خلال إنشاء حساب ، فإنك توافق على"),
+        "validEmail": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال بريد إلكتروني صالح"),
+        "validFullName":
+            MessageLookupByLibrary.simpleMessage("الرجاء إدخال اسم صالح"),
+        "validPassword": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال كلمة مرور صالحة"),
         "welcomeIn": MessageLookupByLibrary.simpleMessage("مرحبا بك في")
       };
 }

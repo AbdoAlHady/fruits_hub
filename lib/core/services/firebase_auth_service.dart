@@ -29,4 +29,27 @@ class FirebaseAuthService {
           message: FirebaseExceptionHandler.handleGeneralException(e));
     }
   }
+
+  Future<User> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      return credential.user!;
+    } on FirebaseAuthException catch (e) {
+      logger.e(
+          "Exception in FirebaseAuthService.signInWithEmailAndPassword : ${e.toString()}");
+      throw CustomException(
+          message: FirebaseExceptionHandler.handleAuthException(e));
+    } catch (e) {
+      logger.e(
+          "Exception in FirebaseAuthService.signInWithEmailAndPassword : ${e.toString()}");
+      throw CustomException(
+          message: FirebaseExceptionHandler.handleGeneralException(e));
+    }
+  }
 }

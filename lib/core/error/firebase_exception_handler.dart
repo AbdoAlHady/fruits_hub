@@ -22,10 +22,10 @@ class FirebaseExceptionHandler {
           errorMessage = 'تم تعطيل هذا الحساب';
           break;
         case 'user-not-found':
-          errorMessage = 'لم يتم العثور على مستخدم بهذا البريد الإلكتروني';
+          errorMessage = 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
           break;
         case 'wrong-password':
-          errorMessage = 'كلمة المرور غير صحيحة';
+          errorMessage = 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
           break;
         case 'invalid-verification-code':
           errorMessage = 'رمز التحقق غير صالح';

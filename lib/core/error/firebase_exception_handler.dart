@@ -143,6 +143,29 @@ class FirebaseExceptionHandler {
     return errorMessage;
   }
 
+  static String handleGoogleSignInException(dynamic e) {
+    String errorMessage = "حدث خطأ";
+    if (e.code != null) {
+      switch (e.code) {
+        case 'network_error':
+          errorMessage = 'لا يوجد اتصال بالإنترنت';
+          break;
+        case 'sign_in_failed':
+          errorMessage = 'فشل تسجيل الدخول';
+          break;
+        case 'sign_in_canceled':
+          // User canceled the sign-in flow
+          errorMessage = 'تم إلغاء تسجيل الدخول';
+          break;
+        case 'play_services_not_available':
+          errorMessage = 'خدمات Google Play غير متوفرة';
+        default:
+          errorMessage = "حدث خطأ غير معروف";
+      }
+    }
+    return errorMessage;
+  }
+
   // General Firebase Exceptions
   static String handleGeneralException(dynamic e) {
     String errorMessage = "حدث خطأ";

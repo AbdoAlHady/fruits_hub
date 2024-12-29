@@ -29,4 +29,11 @@ class AuthRepoImpl implements AuthRepo {
       return Left(ServerFailure(message: "حدث خطأ غير معروف"));
     }
   }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithEmailAndPassword(
+      {required String email, required String password}) {
+    // TODO: implement signInWithEmailAndPassword
+    throw UnimplementedError();
+  }
 }

@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_hub/core/enums/enums.dart';
+import 'package:fruits_hub/core/helper/extensions.dart';
 import 'package:fruits_hub/core/helper/show_toast.dart';
 import 'package:fruits_hub/features/auth/presentation/cubits/signup_cubit.dart';
 import 'package:fruits_hub/features/auth/presentation/cubits/signup_state.dart';
 import 'package:fruits_hub/features/auth/presentation/widgets/signup/signup_screen_body.dart';
+import 'package:fruits_hub/generated/l10n.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class SignupBodyBlocConsumer extends StatelessWidget {
@@ -22,6 +24,13 @@ class SignupBodyBlocConsumer extends StatelessWidget {
               context: context,
               message: state.errorMessage,
               type: ToastType.error);
+        } else if (state.stateType == StateType.success) {
+          context.pop();
+          showToast(
+            context: context,
+            message: S.of(context).acccountCreated,
+            type: ToastType.success,
+          );
         }
       },
       builder: (context, state) {

@@ -1,6 +1,6 @@
 class AppRegex {
   static bool isEmailValid(String email) {
-    return RegExp(r"^\w+@\w+\.\w+").hasMatch(email);
+    return RegExp(r"^[\w.]+@\w+\.\w+").hasMatch(email);
   }
 
   static bool isPasswordValid(String password) {

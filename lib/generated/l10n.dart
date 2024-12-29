@@ -379,6 +379,16 @@ class S {
       args: [],
     );
   }
+
+  /// `!.تم إنشاء الحساب بنجاح`
+  String get acccountCreated {
+    return Intl.message(
+      '!.تم إنشاء الحساب بنجاح',
+      name: 'acccountCreated',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

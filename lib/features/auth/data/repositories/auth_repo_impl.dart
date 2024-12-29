@@ -55,8 +55,8 @@ class AuthRepoImpl implements AuthRepo {
       return Left(ServerFailure(message: e.message));
     } catch (e) {
       logger.e("Exception in AuthRepoImpl.signInWithGoogle : ${e.toString()}");
-      return Left(ServerFailure(
-          message: " لقد حدث خطأ ما, يرجى المحاولة فى وقت لاحقاً"));
+      return Left(
+          ServerFailure(message: "لقد حدث خطأ ما, يرجى المحاولة مرة ثانية"));
     }
   }
 }

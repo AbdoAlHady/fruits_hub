@@ -7,7 +7,7 @@ import 'package:fruits_hub/core/utils/app_regex.dart';
 import 'package:fruits_hub/core/widgets/app_custom_button.dart';
 import 'package:fruits_hub/core/widgets/app_text_form_field.dart';
 import 'package:fruits_hub/core/widgets/password_field.dart';
-import 'package:fruits_hub/features/auth/presentation/cubits/signup_cubit.dart';
+import 'package:fruits_hub/features/auth/presentation/cubits/signup/signup_cubit.dart';
 import 'package:fruits_hub/features/auth/presentation/widgets/have_or_dont_have_account.dart';
 import 'package:fruits_hub/features/auth/presentation/widgets/signup/terms_and_conditions.dart';
 import '../../../../../generated/l10n.dart';

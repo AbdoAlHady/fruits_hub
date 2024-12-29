@@ -74,6 +74,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال اسم صالح"),
         "validPassword": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال كلمة مرور صالحة"),
-        "welcomeIn": MessageLookupByLibrary.simpleMessage("مرحبا بك في")
+        "welcomeIn": MessageLookupByLibrary.simpleMessage("مرحبا بك في"),
+        "youMustAcceptTerms": MessageLookupByLibrary.simpleMessage(
+            "يجب عليك قبول الشروط والأحكام")
       };
 }

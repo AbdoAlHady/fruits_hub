@@ -369,6 +369,16 @@ class S {
       args: [],
     );
   }
+
+  /// `يجب عليك قبول الشروط والأحكام`
+  String get youMustAcceptTerms {
+    return Intl.message(
+      'يجب عليك قبول الشروط والأحكام',
+      name: 'youMustAcceptTerms',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

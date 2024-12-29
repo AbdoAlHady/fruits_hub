@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub/core/helper/extensions.dart';
+import 'package:fruits_hub/core/helper/show_toast.dart';
 import 'package:fruits_hub/core/helper/spacing.dart';
 import 'package:fruits_hub/core/utils/app_regex.dart';
 import 'package:fruits_hub/core/widgets/app_custom_button.dart';
@@ -22,6 +23,7 @@ class _SignupScreenBodyState extends State<SignupScreenBody> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autoValidate = AutovalidateMode.disabled;
   late String email, userName, password;
+  bool isTermsAccepted = false;
   @override
   void dispose() {
     formKey.currentState?.dispose();
@@ -69,15 +71,26 @@ class _SignupScreenBodyState extends State<SignupScreenBody> {
 
           verticalSpace(16),
           // Trems And Conditions
-          TermsAndConditions(),
+          TermsAndConditions(
+            onChanged: (value) {
+              isTermsAccepted = value;
+            },
+          ),
           verticalSpace(30),
           // Sign Up Button
           AppCustomButton(
               onPressed: () {
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.save();
-                  context.read<SignupCubit>().createUser(
-                      email: email, password: password, name: userName);
+                  if (isTermsAccepted) {
+                    context.read<SignupCubit>().createUser(
+                        email: email, password: password, name: userName);
+                  } else {
+                    showToast(
+                        context: context,
+                        message: S.of(context).youMustAcceptTerms,
+                        type: ToastType.warning);
+                  }
                 } else {
                   setState(() {
                     autoValidate = AutovalidateMode.always;

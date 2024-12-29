@@ -31,5 +31,7 @@
   "passwordMustContainoneLowercaseLetter": "يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل",
   "passwordMustContainEihtNumbers": "يجب أن تحتوي كلمة المرور على ثمانية أرقام على الأقل",
   "passwordMustContainoneSpecialCharacter": "يجب أن تحتوي كلمة المرور على حرف خاص واحد على الأقل",
-  "validFullName": "الرجاء إدخال اسم صالح"
+  "validFullName": "الرجاء إدخال اسم صالح",
+  "youMustAcceptTerms": "يجب عليك قبول الشروط والأحكام"
+
 }

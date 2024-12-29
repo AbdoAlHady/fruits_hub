@@ -45,4 +45,10 @@ class AuthRepoImpl implements AuthRepo {
       return Left(ServerFailure(message: "حدث خطأ غير معروف"));
     }
   }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithGoogle() {
+    // TODO: implement signInWithGoogle
+    throw UnimplementedError();
+  }
 }

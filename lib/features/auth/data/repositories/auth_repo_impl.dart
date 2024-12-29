@@ -6,6 +6,8 @@ import 'package:fruits_hub/features/auth/data/models/user_model.dart';
 import 'package:fruits_hub/features/auth/domain/entities/user_entity.dart';
 import 'package:fruits_hub/features/auth/domain/repositories/auth_repo.dart';
 
+import '../../../../core/helper/logger_helper.dart';
+
 class AuthRepoImpl implements AuthRepo {
   final FirebaseAuthService _service;
 
@@ -21,6 +23,10 @@ class AuthRepoImpl implements AuthRepo {
       return Right(UserModel.fromFirebaseUser(result));
     } on CustomException catch (e) {
       return Left(ServerFailure(message: e.message));
+    } catch (e) {
+      logger.e(
+          "Exception in AuthRepoImpl.createUserWithEmailAndPassword : ${e.toString()}");
+      return Left(ServerFailure(message: "حدث خطأ غير معروف"));
     }
   }
 }

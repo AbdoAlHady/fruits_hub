@@ -56,6 +56,9 @@ class FirebaseExceptionHandler {
         case 'invalid-action-code':
           errorMessage = 'رابط إعادة تعيين كلمة المرور غير صالح';
           break;
+        case 'network-request-failed':
+          errorMessage = 'لا يوجد اتصال بالإنترنت';
+          break;
       }
     }
     return errorMessage;

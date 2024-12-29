@@ -47,8 +47,16 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, UserEntity>> signInWithGoogle() {
-    // TODO: implement signInWithGoogle
-    throw UnimplementedError();
+  Future<Either<Failure, UserEntity>> signInWithGoogle() async {
+    try {
+      final user = await _service.signInWithGoogle();
+      return Right(UserModel.fromFirebaseUser(user));
+    } on CustomException catch (e) {
+      return Left(ServerFailure(message: e.message));
+    } catch (e) {
+      logger.e("Exception in AuthRepoImpl.signInWithGoogle : ${e.toString()}");
+      return Left(ServerFailure(
+          message: " لقد حدث خطأ ما, يرجى المحاولة فى وقت لاحقاً"));
+    }
   }
 }

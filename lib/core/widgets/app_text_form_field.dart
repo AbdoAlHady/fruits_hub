@@ -17,7 +17,8 @@ class AppTextFormField extends StatelessWidget {
       this.backgroundColor,
       this.controller,
       required this.validator,
-      this.keyboardType});
+      this.keyboardType,
+      this.onSaved});
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
@@ -30,10 +31,12 @@ class AppTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final Function(String?) validator;
   final TextInputType? keyboardType;
+  final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       child: TextFormField(
+        onSaved: onSaved,
         onTapOutside: (event) {
           FocusManager.instance.primaryFocus?.unfocus();
         },

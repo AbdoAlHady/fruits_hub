@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "acccountCreated":
+            MessageLookupByLibrary.simpleMessage("!.تم إنشاء الحساب بنجاح"),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("تمتلك حساب بالفعل؟"),
         "createNewAccount":
@@ -44,6 +46,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoardingTitle1": MessageLookupByLibrary.simpleMessage("ابحث وتسوق"),
         "or": MessageLookupByLibrary.simpleMessage("أو"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "passwordMustContainEihtNumbers": MessageLookupByLibrary.simpleMessage(
+            "يجب أن تحتوي كلمة المرور على ثمانية أرقام على الأقل"),
+        "passwordMustContainoneLowercaseLetter":
+            MessageLookupByLibrary.simpleMessage(
+                "يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل"),
+        "passwordMustContainoneSpecialCharacter":
+            MessageLookupByLibrary.simpleMessage(
+                "يجب أن تحتوي كلمة المرور على حرف خاص واحد على الأقل"),
+        "passwordMustContainoneUppercaseLetter":
+            MessageLookupByLibrary.simpleMessage(
+                "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل"),
         "searchAndShop": MessageLookupByLibrary.simpleMessage("ابحث وتسوق"),
         "signInWithApple":
             MessageLookupByLibrary.simpleMessage("تسجيل بواسطة أبل"),
@@ -57,6 +70,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(" الشروط والأحكام الخاصة بنا"),
         "tremsTitle": MessageLookupByLibrary.simpleMessage(
             "من خلال إنشاء حساب ، فإنك توافق على"),
-        "welcomeIn": MessageLookupByLibrary.simpleMessage("مرحبا بك في")
+        "validEmail": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال بريد إلكتروني صالح"),
+        "validFullName":
+            MessageLookupByLibrary.simpleMessage("الرجاء إدخال اسم صالح"),
+        "validPassword": MessageLookupByLibrary.simpleMessage(
+            "الرجاء إدخال كلمة مرور صالحة"),
+        "welcomeIn": MessageLookupByLibrary.simpleMessage("مرحبا بك في"),
+        "youMustAcceptTerms": MessageLookupByLibrary.simpleMessage(
+            "يجب عليك قبول الشروط والأحكام")
       };
 }

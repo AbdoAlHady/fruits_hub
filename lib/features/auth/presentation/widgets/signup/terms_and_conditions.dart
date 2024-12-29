@@ -7,7 +7,8 @@ import '../../../../../core/helper/spacing.dart';
 import '../../../../../core/theme/app_colors.dart';
 
 class TermsAndConditions extends StatefulWidget {
-  const TermsAndConditions({super.key});
+  const TermsAndConditions({super.key, required this.onChanged});
+  final ValueChanged<bool> onChanged;
 
   @override
   State<TermsAndConditions> createState() => _TermsAndConditionsState();
@@ -29,6 +30,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
                 onChanged: (value) {
                   setState(() {
                     isChecked = value!;
+                    widget.onChanged(isChecked);
                   });
                 },
                 shape: RoundedRectangleBorder(

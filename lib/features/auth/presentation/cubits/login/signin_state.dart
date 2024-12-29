@@ -22,7 +22,7 @@ class SigninState extends Equatable {
 
   @override
   List<Object> get props => [
-        user!,
+        user ?? UserEntity.empty(),
         errorMessage,
         stateType,
       ];

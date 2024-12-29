@@ -67,6 +67,24 @@ class _SignupScreenBodyState extends State<SignupScreenBody> {
             onSaved: (value) {
               password = value!;
             },
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return S.of(context).validPassword;
+              }
+              if (!AppRegex.hasUpperCase(value)) {
+                return S.of(context).passwordMustContainoneUppercaseLetter;
+              }
+
+              if (!AppRegex.hasLowerCase(value)) {
+                return S.of(context).passwordMustContainoneLowercaseLetter;
+              }
+              if (!AppRegex.hasSpecialCharacter(value)) {
+                return S.of(context).passwordMustContainoneSpecialCharacter;
+              }
+              if (!AppRegex.hasMinLength(value)) {
+                return S.of(context).passwordMustContainEihtNumbers;
+              }
+            },
           ),
 
           verticalSpace(16),

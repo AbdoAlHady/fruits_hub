@@ -43,7 +43,7 @@ class FirebaseExceptionHandler {
               'يوجد حساب بنفس البريد الإلكتروني ولكن بطريقة تسجيل دخول مختلفة';
           break;
         case 'invalid-credential':
-          errorMessage = 'بيانات الاعتماد غير صالحة';
+          errorMessage = 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
           break;
         case 'user-cancelled':
           errorMessage = 'تم إلغاء تسجيل الدخول من قبل المستخدم';

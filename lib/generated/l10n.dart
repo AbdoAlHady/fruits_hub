@@ -389,6 +389,16 @@ class S {
       args: [],
     );
   }
+
+  /// `!.تم تسجيل الدخول بنجاح`
+  String get loginSuccess {
+    return Intl.message(
+      '!.تم تسجيل الدخول بنجاح',
+      name: 'loginSuccess',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

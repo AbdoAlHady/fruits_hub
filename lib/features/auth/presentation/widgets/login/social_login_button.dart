@@ -20,7 +20,7 @@ class SocialLoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: TextButton.styleFrom(
         backgroundColor: Colors.white,
         minimumSize: Size(1.sw, 54.h),

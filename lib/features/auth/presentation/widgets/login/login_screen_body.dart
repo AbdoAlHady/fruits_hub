@@ -96,7 +96,9 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
             SocialLoginButton(
               title: S.of(context).signInWithGoogle,
               image: AppImages.imagesGoogle,
-              onPressed: () {},
+              onPressed: () {
+                context.read<SigninCubit>().signInWithGoogle();
+              },
             ),
             verticalSpace(10),
             SocialLoginButton(

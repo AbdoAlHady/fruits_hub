@@ -151,10 +151,8 @@ class FirebaseExceptionHandler {
           errorMessage = 'لا يوجد اتصال بالإنترنت';
           break;
         case 'sign_in_failed':
-          errorMessage = 'فشل تسجيل الدخول';
-          break;
+          errorMessage = " فشل في تسجيل الدخول. يرجى المحاولة مرة أخرى";
         case 'sign_in_canceled':
-          // User canceled the sign-in flow
           errorMessage = 'تم إلغاء تسجيل الدخول';
           break;
         case 'play_services_not_available':

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:fruits_hub/core/error/exceptions.dart';
 import 'package:fruits_hub/core/error/firebase_exception_handler.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -86,5 +87,18 @@ class FirebaseAuthService {
       throw CustomException(
           message: FirebaseExceptionHandler.handleGeneralException(e));
     }
+  }
+
+  /// Facebook Sign In
+  Future<User> signInWithFacebook() async {
+    // Trigger the sign-in flow
+    final LoginResult loginResult = await FacebookAuth.instance.login();
+
+    final OAuthCredential facebookAuthCredential =
+        FacebookAuthProvider.credential(loginResult.accessToken!.tokenString);
+
+    return (await FirebaseAuth.instance
+            .signInWithCredential(facebookAuthCredential))
+        .user!;
   }
 }

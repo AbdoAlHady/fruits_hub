@@ -110,7 +110,9 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
             SocialLoginButton(
               title: S.of(context).signInWithFacebook,
               image: AppImages.imagesFacebook,
-              onPressed: () {},
+              onPressed: () {
+                context.read<SigninCubit>().signinWithFacebook();
+              },
             ),
           ],
         ),

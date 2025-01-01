@@ -31,4 +31,15 @@ class SigninCubit extends Cubit<SigninState> {
       (user) => emit(state.copyWith(stateType: StateType.success, user: user)),
     );
   }
+
+  /// Signin With Facebook
+  void signinWithFacebook() async {
+    emit(state.copyWith(stateType: StateType.loading));
+    final user = await _repo.signInWithFacebook();
+    user.fold(
+        (failure) => emit(state.copyWith(
+            errorMessage: failure.message, stateType: StateType.failure)),
+        (user) =>
+            emit(state.copyWith(stateType: StateType.success, user: user)));
+  }
 }

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -101,12 +103,14 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
               },
             ),
             verticalSpace(10),
-            SocialLoginButton(
-              title: S.of(context).signInWithApple,
-              image: AppImages.imagesApple,
-              onPressed: () {},
-            ),
-            verticalSpace(10),
+            if (Platform.isIOS) ...[
+              SocialLoginButton(
+                title: S.of(context).signInWithApple,
+                image: AppImages.imagesApple,
+                onPressed: () {},
+              ),
+              verticalSpace(10),
+            ],
             SocialLoginButton(
               title: S.of(context).signInWithFacebook,
               image: AppImages.imagesFacebook,

@@ -88,14 +88,7 @@ class AuthRepoImpl implements AuthRepo {
 
   @override
   Future saveUserData({required UserEntity userEntity}) async {
-    try {
-      await _databaseService.addData(
-          data: userEntity.toMap(), path: FirebaseKeys.usersCollection);
-    } on CustomException catch (e) {
-      return Left(ServerFailure(message: e.message));
-    } catch (e) {
-      logger.e("Exception in AuthRepoImpl.saveUserData : ${e.toString()}");
-      return Left(ServerFailure(message: "حدث خطأ غير معروف"));
-    }
+    await _databaseService.addData(
+        data: userEntity.toMap(), path: FirebaseKeys.usersCollection);
   }
 }

@@ -1,3 +1,3 @@
 abstract class FirebaseKeys {
-  static const String users = 'users';
+  static const String usersCollection = 'users';
 }

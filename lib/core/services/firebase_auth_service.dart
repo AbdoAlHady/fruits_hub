@@ -57,7 +57,6 @@ class FirebaseAuthService {
   }
 
   /// Sign in with Google
-
   Future<User> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
@@ -100,5 +99,19 @@ class FirebaseAuthService {
     return (await FirebaseAuth.instance
             .signInWithCredential(facebookAuthCredential))
         .user!;
+  }
+
+  Future<void> deleteUser() async {
+    try {
+      await FirebaseAuth.instance.currentUser!.delete();
+    } on FirebaseAuthException catch (e) {
+      logger.e("Exception in FirebaseAuthService.deleteUser : ${e.toString()}");
+      throw CustomException(
+          message: FirebaseExceptionHandler.handleAuthException(e));
+    } catch (e) {
+      logger.e("Exception in FirebaseAuthService.deleteUser : ${e.toString()}");
+      throw CustomException(
+          message: FirebaseExceptionHandler.handleGeneralException(e));
+    }
   }
 }

@@ -29,4 +29,47 @@ class AuthRepoImpl implements AuthRepo {
       return Left(ServerFailure(message: "حدث خطأ غير معروف"));
     }
   }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithEmailAndPassword(
+      {required String email, required String password}) async {
+    try {
+      final user = await _service.signInWithEmailAndPassword(
+          email: email, password: password);
+      return Right(UserModel.fromFirebaseUser(user));
+    } on CustomException catch (e) {
+      return Left(ServerFailure(message: e.message));
+    } catch (e) {
+      logger.e(
+          "Exception in AuthRepoImpl.signInWithEmailAndPassword : ${e.toString()}");
+      return Left(ServerFailure(message: "حدث خطأ غير معروف"));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithGoogle() async {
+    try {
+      final user = await _service.signInWithGoogle();
+      return Right(UserModel.fromFirebaseUser(user));
+    } on CustomException catch (e) {
+      return Left(ServerFailure(message: e.message));
+    } catch (e) {
+      logger.e("Exception in AuthRepoImpl.signInWithGoogle : ${e.toString()}");
+      return Left(
+          ServerFailure(message: "لقد حدث خطأ ما, يرجى المحاولة مرة ثانية"));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithFacebook() async {
+    try {
+      final user = await _service.signInWithFacebook();
+      return Right(UserModel.fromFirebaseUser(user));
+    } catch (e) {
+      logger
+          .e("Exception in AuthRepoImpl.signInWithFacebook : ${e.toString()}");
+      return Left(
+          ServerFailure(message: "لقد حدث خطأ ما, يرجى المحاولة مرة ثانية"));
+    }
+  }
 }

@@ -22,10 +22,10 @@ class FirebaseExceptionHandler {
           errorMessage = 'تم تعطيل هذا الحساب';
           break;
         case 'user-not-found':
-          errorMessage = 'لم يتم العثور على مستخدم بهذا البريد الإلكتروني';
+          errorMessage = 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
           break;
         case 'wrong-password':
-          errorMessage = 'كلمة المرور غير صحيحة';
+          errorMessage = 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
           break;
         case 'invalid-verification-code':
           errorMessage = 'رمز التحقق غير صالح';
@@ -43,7 +43,7 @@ class FirebaseExceptionHandler {
               'يوجد حساب بنفس البريد الإلكتروني ولكن بطريقة تسجيل دخول مختلفة';
           break;
         case 'invalid-credential':
-          errorMessage = 'بيانات الاعتماد غير صالحة';
+          errorMessage = 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
           break;
         case 'user-cancelled':
           errorMessage = 'تم إلغاء تسجيل الدخول من قبل المستخدم';
@@ -138,6 +138,27 @@ class FirebaseExceptionHandler {
         case 'storage/canceled':
           errorMessage = 'تم إلغاء العملية';
           break;
+      }
+    }
+    return errorMessage;
+  }
+
+  static String handleGoogleSignInException(dynamic e) {
+    String errorMessage = "حدث خطأ";
+    if (e.code != null) {
+      switch (e.code) {
+        case 'network_error':
+          errorMessage = 'لا يوجد اتصال بالإنترنت';
+          break;
+        case 'sign_in_failed':
+          errorMessage = " فشل في تسجيل الدخول. يرجى المحاولة مرة أخرى";
+        case 'sign_in_canceled':
+          errorMessage = 'تم إلغاء تسجيل الدخول';
+          break;
+        case 'play_services_not_available':
+          errorMessage = 'خدمات Google Play غير متوفرة';
+        default:
+          errorMessage = "حدث خطأ غير معروف";
       }
     }
     return errorMessage;

@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub/features/auth/domain/repositories/auth_repo.dart';
-import 'package:fruits_hub/features/auth/presentation/cubits/signup_state.dart';
+import 'package:fruits_hub/features/auth/presentation/cubits/signup/signup_state.dart';
 
-import '../../../../core/enums/enums.dart';
+import '../../../../../core/enums/enums.dart';
 
 class SignupCubit extends Cubit<SignupState> {
   SignupCubit(this._authRepo) : super(SignupState());

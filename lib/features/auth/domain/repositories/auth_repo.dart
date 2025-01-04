@@ -9,4 +9,16 @@ abstract class AuthRepo {
     required String password,
     required String name,
   });
+
+  /// Login With Email and Password
+  Future<Either<Failure, UserEntity>> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  });
+
+  /// Sign in with Google
+  Future<Either<Failure, UserEntity>> signInWithGoogle();
+
+  /// Sign in with Facebook
+  Future<Either<Failure, UserEntity>> signInWithFacebook();
 }

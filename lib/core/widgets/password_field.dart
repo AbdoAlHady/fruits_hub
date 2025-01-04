@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_hub/core/utils/app_regex.dart';
 import 'package:fruits_hub/core/widgets/app_text_form_field.dart';
 import 'package:fruits_hub/generated/l10n.dart';
 
 class PasswordField extends StatefulWidget {
-  const PasswordField({super.key, this.onSaved});
+  const PasswordField({super.key, this.onSaved, required this.validator});
   final void Function(String?)? onSaved;
-
+  final Function(String?) validator;
   @override
   State<PasswordField> createState() => _PasswordFieldState();
 }
@@ -18,24 +17,7 @@ class _PasswordFieldState extends State<PasswordField> {
     return AppTextFormField(
       hintText: S.of(context).password,
       onSaved: widget.onSaved,
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return S.of(context).validPassword;
-        }
-        if (!AppRegex.hasUpperCase(value)) {
-          return S.of(context).passwordMustContainoneUppercaseLetter;
-        }
-
-        if (!AppRegex.hasLowerCase(value)) {
-          return S.of(context).passwordMustContainoneLowercaseLetter;
-        }
-        if (!AppRegex.hasSpecialCharacter(value)) {
-          return S.of(context).passwordMustContainoneSpecialCharacter;
-        }
-        if (!AppRegex.hasMinLength(value)) {
-          return S.of(context).passwordMustContainEihtNumbers;
-        }
-      },
+      validator: widget.validator,
       keyboardType: TextInputType.visiblePassword,
       isObscureText: isObscureText,
       suffixIcon: IconButton(

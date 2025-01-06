@@ -43,4 +43,11 @@ class FirestoreService implements DatabaseService {
       throw CustomException(message: "لقد حدث خطأ ما, يرجى المحاولة مرة ثانية");
     }
   }
+
+  @override
+  Future<bool> checkIfDataExist(
+      {required String path, required String documnetId}) async {
+    var data = await _db.collection(path).doc(documnetId).get();
+    return data.exists;
+  }
 }

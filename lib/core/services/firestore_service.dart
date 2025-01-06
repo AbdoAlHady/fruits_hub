@@ -21,4 +21,11 @@ class FirestoreService implements DatabaseService {
       throw CustomException(message: "لقد حدث خطأ ما, يرجى المحاولة مرة ثانية");
     }
   }
+
+  @override
+  Future<Map<String, dynamic>> getData(
+      {required String path, required String id}) async {
+    final data = await _db.collection(path).doc(id).get();
+    return data.data() as Map<String, dynamic>;
+  }
 }

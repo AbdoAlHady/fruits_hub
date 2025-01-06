@@ -73,7 +73,15 @@ class AuthRepoImpl implements AuthRepo {
 
       var userEntity =
           UserEntity(id: user.uid, email: user.email!, name: user.displayName!);
-      await saveUserData(userEntity: userEntity);
+      bool isExist = await _databaseService.checkIfDataExist(
+        path: FirebaseKeys.usersCollection,
+        documnetId: userEntity.id,
+      );
+      if (isExist) {
+        await getUserData(userId: userEntity.id);
+      } else {
+        await saveUserData(userEntity: userEntity);
+      }
       return Right(userEntity);
     } on CustomException catch (e) {
       if (user != null) {

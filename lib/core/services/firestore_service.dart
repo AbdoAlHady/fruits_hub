@@ -33,6 +33,7 @@ class FirestoreService implements DatabaseService {
       {required String path, required String documnetId}) async {
     try {
       final data = await _db.collection(path).doc(documnetId).get();
+      logger.i('Data Fetched Successfully From Firestore Collection: $path');
       return data.data() as Map<String, dynamic>;
     } on FirebaseException catch (e) {
       logger.e('Error From FirestoreService.getData: $e');

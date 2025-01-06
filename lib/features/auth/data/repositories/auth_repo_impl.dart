@@ -105,7 +105,13 @@ class AuthRepoImpl implements AuthRepo {
       user = await _service.signInWithFacebook();
       var userEntity =
           UserEntity(id: user.uid, email: user.email!, name: user.displayName!);
-      await saveUserData(userEntity: userEntity);
+      bool isExist = await _databaseService.checkIfDataExist(
+          path: FirebaseKeys.usersCollection, documnetId: userEntity.id);
+      if (isExist) {
+        await getUserData(userId: userEntity.id);
+      } else {
+        await saveUserData(userEntity: userEntity);
+      }
       return Right(userEntity);
     } catch (e) {
       if (user != null) {

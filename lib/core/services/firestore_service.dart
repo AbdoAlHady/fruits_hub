@@ -8,9 +8,15 @@ class FirestoreService implements DatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   @override
   Future<void> addData(
-      {required Map<String, dynamic> data, required String path}) async {
+      {required Map<String, dynamic> data,
+      required String path,
+      String? documentId}) async {
     try {
-      await _db.collection(path).add(data);
+      if (documentId != null) {
+        await _db.collection(path).doc(documentId).set(data);
+      } else {
+        await _db.collection(path).add(data);
+      }
       logger.i('Data Added Successfully To Firestore Collection: $path');
     } on FirebaseException catch (e) {
       logger.e('Error From FirestoreService.addData: $e');
@@ -24,8 +30,17 @@ class FirestoreService implements DatabaseService {
 
   @override
   Future<Map<String, dynamic>> getData(
-      {required String path, required String id}) async {
-    final data = await _db.collection(path).doc(id).get();
-    return data.data() as Map<String, dynamic>;
+      {required String path, required String documnetId}) async {
+    try {
+      final data = await _db.collection(path).doc(documnetId).get();
+      return data.data() as Map<String, dynamic>;
+    } on FirebaseException catch (e) {
+      logger.e('Error From FirestoreService.getData: $e');
+      throw CustomException(
+          message: FirebaseExceptionHandler.handleDatabaseException(e));
+    } catch (e) {
+      logger.e('Error From FirestoreService.getData: $e');
+      throw CustomException(message: "لقد حدث خطأ ما, يرجى المحاولة مرة ثانية");
+    }
   }
 }

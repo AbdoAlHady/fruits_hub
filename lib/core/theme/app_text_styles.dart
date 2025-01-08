@@ -3,6 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_hub/core/theme/app_colors.dart';
 
 abstract class AppTextStyles {
+  static TextStyle font11W600 =
+      TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w600);
+
   static TextStyle font13GreyW400 = TextStyle(
       fontSize: 13.sp, color: AppColors.grey, fontWeight: FontWeight.w400);
 

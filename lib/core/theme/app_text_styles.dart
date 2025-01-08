@@ -17,6 +17,11 @@ abstract class AppTextStyles {
   static TextStyle font13GreyW700 = TextStyle(
       fontSize: 13.sp, color: AppColors.grey, fontWeight: FontWeight.w700);
 
+  static TextStyle font13PrimaryW700 = TextStyle(
+      fontSize: 13.sp,
+      color: AppColors.primaryColor,
+      fontWeight: FontWeight.w700);
+
   static TextStyle font13LightDarkW600 = TextStyle(
       fontSize: 13.sp, color: AppColors.lightDark, fontWeight: FontWeight.w600);
 

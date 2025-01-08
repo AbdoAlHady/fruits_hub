@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_hub/core/helper/spacing.dart';
 import 'package:fruits_hub/core/widgets/search_text_field.dart';
 import 'package:fruits_hub/features/home/presentation/widgets/home/custom_home_app_bar.dart';
+import 'package:fruits_hub/features/home/presentation/widgets/home/featured_item.dart';
 
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({super.key});
@@ -21,6 +22,12 @@ class HomeScreenBody extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: SearchTextField(),
+          ),
+          SliverToBoxAdapter(
+            child: verticalSpace(8),
+          ),
+          SliverToBoxAdapter(
+            child: FeaturedItem(),
           ),
         ],
       ),

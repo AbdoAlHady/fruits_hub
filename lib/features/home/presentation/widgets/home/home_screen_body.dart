@@ -6,6 +6,8 @@ import 'package:fruits_hub/features/home/presentation/widgets/home/best_selling_
 import 'package:fruits_hub/features/home/presentation/widgets/home/custom_home_app_bar.dart';
 import 'package:fruits_hub/features/home/presentation/widgets/home/featured_list_view.dart';
 
+import '../../../../../core/widgets/fruits_grid_view.dart';
+
 class HomeScreenBody extends StatelessWidget {
   const HomeScreenBody({super.key});
 
@@ -36,6 +38,10 @@ class HomeScreenBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: BestSellingHeading(),
           ),
+          SliverToBoxAdapter(
+            child: verticalSpace(8),
+          ),
+          FruitsGridView(),
         ],
       ),
     );

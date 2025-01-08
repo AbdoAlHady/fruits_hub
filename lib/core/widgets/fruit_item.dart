@@ -14,7 +14,7 @@ class FruitItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4),
-        color: AppColors.softGrey,
+        color: AppColors.fruitCardColor,
       ),
       child: Stack(
         children: [

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_hub/core/helper/spacing.dart';
 import 'package:fruits_hub/core/widgets/search_text_field.dart';
+import 'package:fruits_hub/features/home/presentation/widgets/home/best_selling_heading.dart';
 import 'package:fruits_hub/features/home/presentation/widgets/home/custom_home_app_bar.dart';
 import 'package:fruits_hub/features/home/presentation/widgets/home/featured_list_view.dart';
 
@@ -28,6 +29,12 @@ class HomeScreenBody extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: FeaturedListView(),
+          ),
+          SliverToBoxAdapter(
+            child: verticalSpace(12),
+          ),
+          SliverToBoxAdapter(
+            child: BestSellingHeading(),
           ),
         ],
       ),

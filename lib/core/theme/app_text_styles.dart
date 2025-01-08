@@ -34,6 +34,9 @@ abstract class AppTextStyles {
   static TextStyle font16WhiteW700 = TextStyle(
       fontSize: 16.sp, color: Colors.white, fontWeight: FontWeight.w700);
 
+  static TextStyle font16W700 =
+      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700);
+
   static TextStyle font16DarkBlueW700 = TextStyle(
       fontSize: 16.sp, color: AppColors.darkBlue, fontWeight: FontWeight.w700);
 

@@ -114,4 +114,8 @@ class FirebaseAuthService {
           message: FirebaseExceptionHandler.handleGeneralException(e));
     }
   }
+
+  bool isLoggedIn() {
+    return FirebaseAuth.instance.currentUser != null;
+  }
 }

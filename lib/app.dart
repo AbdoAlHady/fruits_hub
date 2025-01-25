@@ -35,7 +35,7 @@ class FruitsHubApp extends StatelessWidget {
           navigatorKey: AppRouter.navigatorKey,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: AppRouter().onGenerateRoute,
-          initialRoute: Routes.homeScreen,
+          initialRoute: Routes.splashScreen,
         );
       },
     );

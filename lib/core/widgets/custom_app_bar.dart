@@ -10,7 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       this.actions});
   final String title;
   final bool showArrowBack;
-  final List<Widget>? actions;
+  final Widget? actions;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               },
             )
           : null,
-      actions: actions,
+      actions: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: actions,
+        )
+      ],
     );
   }
 

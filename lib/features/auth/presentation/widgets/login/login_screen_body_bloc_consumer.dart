@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruits_hub/core/enums/enums.dart';
+import 'package:fruits_hub/core/helper/extensions.dart';
 import 'package:fruits_hub/core/helper/show_toast.dart';
+import 'package:fruits_hub/core/routing/routes.dart';
 import 'package:fruits_hub/features/auth/presentation/cubits/login/signin_cubit.dart';
 import 'package:fruits_hub/features/auth/presentation/widgets/login/login_screen_body.dart';
 import 'package:fruits_hub/generated/l10n.dart';
@@ -22,8 +24,7 @@ class LoginScreenBodyBlocConsumer extends StatelessWidget {
               context: context,
               message: S.of(context).loginSuccess,
               type: ToastType.success);
-
-          //TODO: Navigate to home screen
+          context.pushReplacementNamed(Routes.homeScreen);
         } else if (state.stateType == StateType.failure) {
           showToast(
               context: context,

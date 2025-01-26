@@ -11,14 +11,6 @@ class UserEntity extends Equatable {
     required this.name,
   });
 
-  toMap() {
-    return {
-      'id': id,
-      'email': email,
-      'name': name,
-    };
-  }
-
   // empty user entity
   factory UserEntity.empty() => UserEntity(id: '', email: '', name: '');
 

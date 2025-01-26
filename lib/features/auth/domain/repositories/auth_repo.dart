@@ -19,6 +19,11 @@ abstract class AuthRepo {
   /// Sign in with Google
   Future<Either<Failure, UserEntity>> signInWithGoogle();
 
+  /// Add User Data
+  Future addUserData({
+    required UserEntity userEntity,
+  });
+
   /// Save User Data
   Future saveUserData({
     required UserEntity userEntity,

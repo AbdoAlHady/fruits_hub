@@ -1,10 +1,14 @@
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruits_hub/core/error/exceptions.dart';
 import 'package:fruits_hub/core/error/failure.dart';
+import 'package:fruits_hub/core/services/cache_helper.dart';
 import 'package:fruits_hub/core/services/data_base_service.dart';
 import 'package:fruits_hub/core/services/firebase_auth_service.dart';
 import 'package:fruits_hub/core/utils/firebase_keys.dart';
+import 'package:fruits_hub/core/utils/prefs_keys.dart';
 import 'package:fruits_hub/features/auth/data/models/user_model.dart';
 import 'package:fruits_hub/features/auth/domain/entities/user_entity.dart';
 import 'package:fruits_hub/features/auth/domain/repositories/auth_repo.dart';
@@ -29,7 +33,7 @@ class AuthRepoImpl implements AuthRepo {
       user = await _service.createUserWithEmailAndPassword(
           email: email, password: password);
       var userEntity = UserEntity(id: user.uid, email: email, name: name);
-      await saveUserData(
+      await addUserData(
         userEntity: userEntity,
       );
       return Right(userEntity);
@@ -55,6 +59,7 @@ class AuthRepoImpl implements AuthRepo {
       final user = await _service.signInWithEmailAndPassword(
           email: email, password: password);
       var userEntity = await getUserData(userId: user.uid);
+      saveUserData(userEntity: userEntity);
       return Right(userEntity);
     } on CustomException catch (e) {
       return Left(ServerFailure(message: e.message));
@@ -73,6 +78,8 @@ class AuthRepoImpl implements AuthRepo {
 
       var userEntity =
           UserEntity(id: user.uid, email: user.email!, name: user.displayName!);
+      saveUserData(userEntity: userEntity);
+
       bool isExist = await _databaseService.checkIfDataExist(
         path: FirebaseKeys.usersCollection,
         documnetId: userEntity.id,
@@ -80,7 +87,7 @@ class AuthRepoImpl implements AuthRepo {
       if (isExist) {
         await getUserData(userId: userEntity.id);
       } else {
-        await saveUserData(userEntity: userEntity);
+        await addUserData(userEntity: userEntity);
       }
       return Right(userEntity);
     } on CustomException catch (e) {
@@ -105,12 +112,14 @@ class AuthRepoImpl implements AuthRepo {
       user = await _service.signInWithFacebook();
       var userEntity =
           UserEntity(id: user.uid, email: user.email!, name: user.displayName!);
+      saveUserData(userEntity: userEntity);
+
       bool isExist = await _databaseService.checkIfDataExist(
           path: FirebaseKeys.usersCollection, documnetId: userEntity.id);
       if (isExist) {
         await getUserData(userId: userEntity.id);
       } else {
-        await saveUserData(userEntity: userEntity);
+        await addUserData(userEntity: userEntity);
       }
       return Right(userEntity);
     } catch (e) {
@@ -125,9 +134,9 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
-  Future saveUserData({required UserEntity userEntity}) async {
+  Future addUserData({required UserEntity userEntity}) async {
     await _databaseService.addData(
-        data: userEntity.toMap(),
+        data: UserModel.formEntiy(userEntity).toMap(),
         path: FirebaseKeys.usersCollection,
         documentId: userEntity.id);
   }
@@ -137,5 +146,11 @@ class AuthRepoImpl implements AuthRepo {
     var data = await _databaseService.getData(
         path: FirebaseKeys.usersCollection, documnetId: userId);
     return UserModel.fromJson(data);
+  }
+
+  @override
+  Future saveUserData({required UserEntity userEntity}) async {
+    var jsonEncoded = jsonEncode(UserModel.formEntiy(userEntity).toMap());
+    await CacheHelper().saveData(key: PrefsKeys.userData, value: jsonEncoded);
   }
 }
